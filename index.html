@@ -1,37 +1,95 @@
 <!DOCTYPE html>
-<html>
 <head>
     <title>Aleo Roadmap</title>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
-    <script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
-    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
+    <div class="diagram-container">
+        <div class="mermaid">
+          gantt
+              title Aleo Release Schedule
+              dateFormat  YYYY-MM-DD
+              tickInterval 1week
+              section -
+              - : 02/28/2025,
+              section Canary
+              v3.4.0 (03/05) :active, 03/05/2025, 1d
+              v3.5.0 (04/01) :active, c2, 04/01/2025, 1d
+              Consensus V4 activates block height 5_530_000:active, 04/03/2025, 1d
+              v3.6.0 (04/29):active, c2, 4/29/2025, 1d
+              
+              section Testnet
+              v3.4.0 (03/11):active, t1, 03/11/2025, 1d
+              v3.5.0 (04/08):active, t2, 04/08/2025, 1d
+              Consensus V4 activates block height 6_625_000:active, t3, 04/13/2025, 1d
+              v3.6.0 (05/13):active, c2, 5/13/2025, 1d
+              
+              section Mainnet
+              v3.4.0 (03/25):active, m1, 03/25/2025, 1d
+              v3.5.0 (04/22):active, m2, 04/22/2025, 1d
+              Consensus V4 activates block height 7_100_000:active, m3, 05/06/2025, 1d
+              v3.6.0 (05/20):active, c2, 5/20/2025, 1d
+          </div>
+      </div>
+  </body>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+</script>
+<style>
+  .grid .tick {
+      stroke: lightgrey;
+      opacity: 0.3;
+      shape-rendering: crispEdges;
+  }
+  .grid path {
+      stroke-width: 0;
+  }
 
-%%{init: {"theme": "dark", "themeVariables": {"ganttTextFill": "#FFFFFF", "ganttBarHeight": 18, "ganttBarProgressionColor": "#ff6f61"}}}%%
-gantt
-    title Aleo Release Schedule
-    dateFormat  YYYY-MM-DD
-    tickInterval 1week
-    section -
-    - : 02/28/2025,
-    section Canary Releases
-    v3.4.0 (03/05) :active, 03/05/2025, 1d
-    v3.5.0 (04/01) :active, c2, 04/01/2025, 1d
-    Consensus V4 activates block height 5_530_000:active, 04/03/2025, 1d
-    v3.6.0 (04/29):active, c2, 4/29/2025, 1d
-    
-    section Testnet Releases
-    v3.4.0 (03/11):active, t1, 03/11/2025, 1d
-    v3.5.0 (04/08):active, t2, 04/08/2025, 1d
-    Consensus V4 activates block height 6_625_000:active, t3, 04/13/2025, 1d
-    v3.6.0 (05/13):active, c2, 5/13/2025, 1d
-    
-    section Mainnet Releases
-    v3.4.0 (03/25):active, m1, 03/25/2025, 1d
-    v3.5.0 (04/22):active, m2, 04/22/2025, 1d
-    Consensus V4 activates block height 7_100_000:active, m3, 05/06/2025, 1d
-    v3.6.0 (05/20):active, c2, 5/20/2025, 1d
-</body>
+  #tag {
+      color: white;
+      background: #FA283D;
+      width: 150px;
+      position: absolute;
+      display: none;
+      padding:3px 6px;
+      margin-left: -80px;
+      font-size: 11px;
+  }
+
+  #tag:before {
+      border: solid transparent;
+      content: ' ';
+      height: 0;
+      left: 50%;
+      margin-left: -5px;
+      position: absolute;
+      width: 0;
+      border-width: 10px;
+      border-bottom-color: #FA283D;
+      top: -20px;
+  }
+  .taskText {
+      fill:white;
+      text-anchor:middle;
+  }
+  .taskTextOutsideRight {
+      fill:black;
+      text-anchor:start;
+  }
+  .taskTextOutsideLeft {
+      fill:black;
+      text-anchor:end;
+  }
+  body {
+      background-color: #1e1e1e;
+      color: white;
+  }
+  .sectionTitle {
+      font-size: 1.5em;
+  }
+  .titleText {
+      font-size: 3em;
+  }
+</style>
 </html>
 
