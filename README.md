@@ -1,4 +1,2 @@
-# Aleo release schedule
-
-Will be shared for 2026 soon.
+# [Click here to visit the Aleo roadmap and release schedule](https://roadmap.aleo.org)
 
